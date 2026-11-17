@@ -1,0 +1,20 @@
+[project]
+name = "simcore"
+version = "0.1.0"
+description = "분산 몬테카를로 시뮬레이션 플랫폼의 계산 엔진 (Phase 0)"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    # 같은 시드로 같은 결과를 내려면 워커들이 같은 NumPy 버전을 써야 한다. 정확한 버전은 uv.lock이 고정한다.
+    "numpy>=2.0,<3",
+]
+
+[dependency-groups]
+dev = ["pytest>=8"]
+
+[tool.uv]
+package = false
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
